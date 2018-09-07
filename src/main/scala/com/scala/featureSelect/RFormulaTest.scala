@@ -12,10 +12,10 @@ object RFormulaTest {
     var sqlContext = new SQLContext(sc)
 
     val dataset = sqlContext.createDataFrame(Seq(
-      (7, "US", 18, 1.0,"a"),
-      (8, "CA", 12, 0.0,"b"),
-      (9, "NZ", 15, 0.0,"a")
-    )).toDF("id", "country", "hour", "clicked","my_test")
+      (7, "US", 18, 1.0, "a"),
+      (8, "CA", 12, 0.0, "b"),
+      (9, "NZ", 15, 0.0, "a")
+    )).toDF("id", "country", "hour", "clicked", "my_test")
     val formula = new RFormula()
       .setFormula("clicked ~ country + hour + my_test")
       .setFeaturesCol("features")

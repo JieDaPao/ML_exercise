@@ -79,8 +79,8 @@ object StatisticsCorrLearning {
     println("correlationSpearman5：" + correlationSpearman5) //打印结果
 
     println("\nFifth:")
-    val rdd7 = sc.parallelize(Array(170.0, 150.0, 210.0,180.0,160.0))
-    val rdd8 = sc.parallelize(Array(180.0, 165.0, 190.0,168.0,172.0))
+    val rdd7 = sc.parallelize(Array(170.0, 150.0, 210.0, 180.0, 160.0))
+    val rdd8 = sc.parallelize(Array(180.0, 165.0, 190.0, 168.0, 172.0))
     println("rdd:")
     rdd7.foreach(each => print(each + " "))
     println("\nrdd:")
