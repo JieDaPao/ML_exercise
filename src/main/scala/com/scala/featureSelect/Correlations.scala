@@ -11,6 +11,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * Created by legotime on 2016/4/8.
   */
 object Correlations {
+  case class pair (featureName:String,corrScore:Double)
   def main(args: Array[String]) {
     //    val sparkConf = new SparkConf().setAppName("Correlations").setMaster("local")
     //    val sc = new SparkContext(sparkConf)
@@ -61,22 +62,20 @@ object Correlations {
     //    val xx = target_rdd.foreach(_.toArray)
     //    println("xxxxxx"+xx.toString)
 
-    //    val rdd2 = sc.parallelize(Array(149.0, 150.0, 153.0, 155.0, 160.0, 155.0, 160.0, 150.0))
-    //    val rdd3 = sc.parallelize(Array(81.0, 88.0, 87.0, 99.0, 91.0, 89.0, 95.0, 90.0))
-    //    println("rdd2:" + rdd2)
-    //    rdd2.collect().foreach(println)
-    //    //val correlation1:Double = Statistics.corr(rdd2, rdd3, "pearson")
-    //    //缺省的情况下，默认的是pearson相关性系数
-    val correlation1: Double =
-    Statistics.corr(
-      sc.parallelize(stringRdd2ArrayByCol(baseDf, "Target")),
-      sc.parallelize(stringRdd2ArrayByCol(baseDf, "caifuchanpin")))
+//    val rdd2 = sc.parallelize(Array(161.0, 176.0, 174.0, 198.0, 182.0, 178.0, 190.0, 180.0))
+//    val rdd3 = sc.parallelize(Array(81.0, 88.0, 87.0, 99.0, 91.0, 89.0, 95.0, 90.0))
+//    println("rdd2:" + rdd2)
+//    rdd2.collect().foreach(println)
+//    val correlation1:Double = Statistics.corr(rdd2, rdd3, "pearson")
+    //缺省的情况下，默认的是pearson相关性系数
+    val correlation1: Double = Statistics.corr(sc.parallelize(target_ary), sc.parallelize(feature_ary))
     println("pearson相关系数：" + correlation1)
     //    //pearson相关系数：0.6124030566141675
     //    val correlation2: Double = Statistics.corr(rdd2, rdd3, "spearman")
     //    println("spearman相关系数：" + correlation2)
     //    //spearman相关系数：0.7395161835775294
-
+    val featureCorr = getFeaturesCorr(sparkSession,"liushi",schema,"Target")
+    featureCorr.foreach(println(_))
     sc.stop()
   }
 
@@ -105,4 +104,22 @@ object Correlations {
     df.rdd.collect().map(r => r.getString(df.columns.indexOf(selectCol)).toDouble)
   }
 
+  def getFeaturesCorr(sparkSession:SparkSession,tempView:String,schema:Array[String],Target:String) = {
+    val sc =sparkSession.sparkContext
+    val baseDF = sparkSession.sql(
+      """select * from """+tempView+""" where Target in (0,1)""".stripMargin)
+    val target = stringRdd2ArrayByCol(baseDF, Target)
+    val features = schema.diff(Array(Target,"uid")).map(x => stringRdd2ArrayByCol(baseDF, x))
+
+    val result = features.map {
+      x=>
+      Statistics.corr(sc.parallelize(target), sc.parallelize(x))
+
+    }
+    result
+//    schema.diff(Target).map(Statistics.corr(sc.parallelize(target), sc.parallelize(stringRdd2ArrayByCol(
+//      sparkSession.sql(
+//        """select * from """+tempView+""" where Target in (0,1)""".stripMargin
+//      ), _)))
+  }
 }

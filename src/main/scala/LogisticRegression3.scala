@@ -40,7 +40,7 @@ object LogisticRegression3 {
     val predictionAndLabels = parsedTest.map { //计算测试值
       case LabeledPoint(label, features) =>
         (model.predict(features), label) //存储测试值和预测值
-    } //rdd.map(x=> x+1)在这里先写x，此处是一个case class
+    }
     // 而后是对x的操作，即定义了一个prediction来存预测的结
     // 果，然后再定义返回值
     predictionAndLabels.foreach(println)
