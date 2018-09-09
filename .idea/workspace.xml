@@ -287,7 +287,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="git&#9;ACTION&#9;Git.Log&#10;LBFGS&#9;FILE&#9;jar:///Users/yujieshen/IdeaProjects/scala/spark_jar/spark-mllib_2.11-2.3.1.jar!/org/apache/spark/mllib/classification/LogisticRegressionWithLBFGS.class" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536490664929" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536491148791" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/scala" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />

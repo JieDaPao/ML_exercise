@@ -1,8 +1,8 @@
 package com.lxw1234.spark.features.selectors
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.ml.feature.ChiSqSelector
 import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
   * By http://lxw1234.com
