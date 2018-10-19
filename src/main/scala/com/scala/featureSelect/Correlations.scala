@@ -3,6 +3,7 @@ package com.scala.featureSelect
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.stat.Statistics
+import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
@@ -11,7 +12,6 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * Created by legotime on 2016/4/8.
   */
 object Correlations {
-
   def main(args: Array[String]) {
     //    val sparkConf = new SparkConf().setAppName("Correlations").setMaster("local")
     //    val sc = new SparkContext(sparkConf)
@@ -27,20 +27,23 @@ object Correlations {
       .appName("my-spark-app")
       .getOrCreate()
     val sc = sparkSession.sparkContext
-    val dataFrame = sparkSession.read.option("header", "true").csv("./src/main/resouces/liushi.csv")
+    val dataFrame = sparkSession.read.option("header", "true").csv("./src/main/resouces/liushi2.csv")
 
     val schema =
-      """uid,recentDate,dealPercent,transOutPercent,age,Rank,CreditCard,payCredit,cashHold,Salary,Channel,licai,fund,security,gold,sex,caifuchanpin,qianli,historicalArriveRate,Target""".split(",")
+      """uid,aum1806,avg1,re,target1,sig,alert_flag,target2,achive_rate,Redate,trx_percent,zzbl,zzh,channel,licai,foundation,baoxian,gold,cunkuan,cash,credit,credit_pay,qianli,sex,daifa""".split(",")
     val sm = StructType(schema.map {
       x => StructField(x, if (x == "uid") StringType else StringType, nullable = true)
     })
 
     val df = sparkSession.createDataFrame(dataFrame.rdd, sm)
+
     df.createOrReplaceTempView("liushi")
 
     val data = stringRdd2LP(sparkSession.sql(
-      """select * from liushi where Target in (0,1)""".stripMargin), Array("uid"), "Target")
+      """select * from liushi where target2 in (0,1)""".stripMargin), Array("uid,target1"), "target2")
     //    println(data.take(2))
+    MLUtils.saveAsLibSVMFile(data,"./src/main/resouces/liushi2_libsvm")
+
     val featuresRdd = data.map(line => Vectors.dense(line.features.toArray))
     //package org.apache.spark.mllib.stat下的一些基本操作
     val summary = Statistics.colStats(featuresRdd)
@@ -55,27 +58,30 @@ object Correlations {
     //val rdd3 = sc.parallelize(Array(2.0,3.0,4.0,5.0))
 
     val baseDf = sparkSession.sql(
-      """select * from liushi where Target in (0,1)""".stripMargin)
-    val target_ary = stringRdd2ArrayByCol(baseDf, "Target")
-    val feature_ary = stringRdd2ArrayByCol(baseDf, "caifuchanpin")
+      """select * from liushi where target2 in (0,1)""".stripMargin)
+    val target_ary = stringRdd2ArrayByCol(baseDf, "target2")
+    val feature_ary = stringRdd2ArrayByCol(baseDf, "licai")
 
     //    val xx = target_rdd.foreach(_.toArray)
     //    println("xxxxxx"+xx.toString)
 
-    //    val rdd2 = sc.parallelize(Array(161.0, 176.0, 174.0, 198.0, 182.0, 178.0, 190.0, 180.0))
+    //    val rdd2 = sc.parallelize(Array(149.0, 150.0, 153.0, 155.0, 160.0, 155.0, 160.0, 150.0))
     //    val rdd3 = sc.parallelize(Array(81.0, 88.0, 87.0, 99.0, 91.0, 89.0, 95.0, 90.0))
     //    println("rdd2:" + rdd2)
     //    rdd2.collect().foreach(println)
-    //    val correlation1:Double = Statistics.corr(rdd2, rdd3, "pearson")
-    //缺省的情况下，默认的是pearson相关性系数
-    val correlation1: Double = Statistics.corr(sc.parallelize(target_ary), sc.parallelize(feature_ary))
+    //    //val correlation1:Double = Statistics.corr(rdd2, rdd3, "pearson")
+    //    //缺省的情况下，默认的是pearson相关性系数
+    val correlation1: Double =
+    Statistics.corr(
+      sc.parallelize(stringRdd2ArrayByCol(baseDf, "target2")),
+      sc.parallelize(stringRdd2ArrayByCol(baseDf, "foundation")),
+      method = "spearman")
     println("pearson相关系数：" + correlation1)
     //    //pearson相关系数：0.6124030566141675
-    //    val correlation2: Double = Statistics.corr(rdd2, rdd3, "spearman")
-    //    println("spearman相关系数：" + correlation2)
+//    val correlation2: Double = Statistics.corr(rdd2, rdd3, "spearman")
+//    println("spearman相关系数：" + correlation2)
     //    //spearman相关系数：0.7395161835775294
-    val featureCorr = getFeaturesCorr(sparkSession, "liushi", schema, "Target")
-    featureCorr.foreach(println(_))
+
     sc.stop()
   }
 
@@ -103,26 +109,5 @@ object Correlations {
   def stringRdd2ArrayByCol(df: DataFrame, selectCol: String): Array[Double] = {
     df.rdd.collect().map(r => r.getString(df.columns.indexOf(selectCol)).toDouble)
   }
-
-  def getFeaturesCorr(sparkSession: SparkSession, tempView: String, schema: Array[String], Target: String) = {
-    val sc = sparkSession.sparkContext
-    val baseDF = sparkSession.sql(
-      """select * from """ + tempView +""" where Target in (0,1)""".stripMargin)
-    val target = stringRdd2ArrayByCol(baseDF, Target)
-    val features = schema.diff(Array(Target, "uid")).map(x => stringRdd2ArrayByCol(baseDF, x))
-
-    val result = features.map {
-      x =>
-        Statistics.corr(sc.parallelize(target), sc.parallelize(x))
-
-    }
-    result
-    //    schema.diff(Target).map(Statistics.corr(sc.parallelize(target), sc.parallelize(stringRdd2ArrayByCol(
-    //      sparkSession.sql(
-    //        """select * from """+tempView+""" where Target in (0,1)""".stripMargin
-    //      ), _)))
-  }
-
-  case class pair(featureName: String, corrScore: Double)
 
 }

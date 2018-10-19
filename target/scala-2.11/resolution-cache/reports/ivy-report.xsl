@@ -335,9 +335,10 @@
                             <td class="title">Revisions</td>
                             <td class="value">
                                 <xsl:value-of select="count($revisions)"/>
-                                (<xsl:value-of select="count($searcheds)"/> searched<img
-                                    src="http://ant.apache.org/ivy/images/searched.gif" alt="searched"
-                                    title="module revisions which required a search with a dependency resolver to be resolved"/>
+                                (<xsl:value-of select="count($searcheds)"/> searched
+                                <img
+                                        src="http://ant.apache.org/ivy/images/searched.gif" alt="searched"
+                                        title="module revisions which required a search with a dependency resolver to be resolved"/>
                                 ,
                                 <xsl:value-of select="count($downloadeds)"/> downloaded<img
                                     src="http://ant.apache.org/ivy/images/downloaded.gif" alt="downloaded"

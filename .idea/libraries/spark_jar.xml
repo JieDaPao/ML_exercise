@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="spark_jar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../spark_jar" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../spark_jar" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spark-mllib_2.11-2.3.1-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../spark_jar" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../spark_jar" recursive="false" type="SOURCES" />
+  </library>
+</component>

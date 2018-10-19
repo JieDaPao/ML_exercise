@@ -4,6 +4,7 @@
   */
 
 import org.apache.log4j.{Level, Logger}
+import org.apache.spark.mllib.classification.LogisticRegressionModel
 import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS
 import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
@@ -34,7 +35,7 @@ object svmpredict {
     val conf = new SparkConf().setMaster("local[1]").setAppName("svmpredict")
     val sc = new SparkContext(conf)
 
-    val data = MLUtils.loadLibSVMFile(sc, "./src/main/resouces/iris_libsvm.txt")
+    val data = MLUtils.loadLibSVMFile(sc, "./src/main/resouces/liushi2_libsvm")
     val scaled_data = data
       .randomSplit(Array(0.7, 0.3), 11L)
     val data_train = scaled_data(0)
@@ -43,11 +44,12 @@ object svmpredict {
 
     val numIterations = 20
     val model = new LogisticRegressionWithLBFGS().setNumClasses(2).run(data_train)
+//    val model = LogisticRegressionModel.load(sc,"./src/main/models/LR.model")
 
+//    model.save(sc,"./src/main/models/LR.model")
     val labelAndPreds = data.map { point =>
       val prediction = model.predict(point.features)
       (point.label, prediction)
-
     }
     val trainErr = labelAndPreds.filter(r => r._1 != r._2).count.toDouble / data.count
     println("Training Error = " + trainErr)

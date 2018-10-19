@@ -292,13 +292,109 @@
 [debug] == resolving dependencies default#word_cnt$sources;0.1->org.scala-lang#scala-reflect;2.11.8 [scala-tool->master]
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
-[debug] 	[NOT REQUIRED] jline#jline;2.12.1!jline.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.11.8!scala-library.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.8!scala-compiler.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.11.8!scala-library.jar(src)
+[debug] 	[NOT REQUIRED] jline#jline;2.12.1!jline.jar(src)
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.11.8!scala-reflect.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4!scala-parser-combinators_2.11.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.4!scala-xml_2.11.jar(src)
-[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.11.8!scala-reflect.jar(src)
-[debug] :: resolution report :: resolve 16ms :: artifacts dl 2ms
+[debug] no default ivy user dir defined: set to /Users/yujieshen/.ivy2
+[debug] no default ivy user dir defined: set to /Users/yujieshen/.ivy2
+[debug] no default ivy user dir defined: set to /Users/yujieshen/.ivy2
+[debug] no default ivy user dir defined: set to /Users/yujieshen/.ivy2
+[debug] no default ivy user dir defined: set to /Users/yujieshen/.ivy2
+[debug] no default ivy user dir defined: set to /Users/yujieshen/.ivy2
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-public.xml
+[debug] no default cache defined: set to /Users/yujieshen/.ivy2/cache
+[debug] no default cache defined: set to /Users/yujieshen/.ivy2/cache
+[debug] no default cache defined: set to /Users/yujieshen/.ivy2/cache
+[debug] no default cache defined: set to /Users/yujieshen/.ivy2/cache
+[debug] no default cache defined: set to /Users/yujieshen/.ivy2/cache
+[debug] no default cache defined: set to /Users/yujieshen/.ivy2/cache
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-shared.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-local.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-main-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] including url: jar:file:/Users/yujieshen/.sbt/boot/scala-2.12.6/org.scala-sbt/sbt/1.2.1/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.jar!/org/apache/ivy/core/settings/ivysettings-default-chain.xml
+[debug] settings loaded (44ms)
+[debug] 	default cache: /Users/yujieshen/.ivy2/cache
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	public [ibiblio]
+[debug] settings loaded (44ms)
+[debug] settings loaded (45ms)
+[debug] 	default cache: /Users/yujieshen/.ivy2/cache
+[debug] 	main [chain] [shared, public]
+[debug] 	default resolver: default
+[debug] 	default cache: /Users/yujieshen/.ivy2/cache
+[debug] settings loaded (45ms)
+[debug] 	local [file]
+[debug] 	default resolver: default
+[debug] 	-- 5 resolvers:
+[debug] 	default cache: /Users/yujieshen/.ivy2/cache
+[debug] 	shared [file]
+[debug] 	-- 5 resolvers:
+[debug] 	default resolver: default
+[debug] 	shared [file]
+[debug] 	default [chain] [local, main]
+[debug] 	-- 5 resolvers:
+[debug] settings loaded (45ms)
+[debug] 	public [ibiblio]
+[debug] 	default [chain] [local, main]
+[debug] 	shared [file]
+[debug] 	default cache: /Users/yujieshen/.ivy2/cache
+[debug] 	public [ibiblio]
+[debug] 	default [chain] [local, main]
+[debug] 	default resolver: default
+[debug] settings loaded (45ms)
+[debug] 	public [ibiblio]
+[debug] 	main [chain] [shared, public]
+[debug] 	-- 5 resolvers:
+[debug] 	default cache: /Users/yujieshen/.ivy2/cache
+[debug] 	main [chain] [shared, public]
+[debug] 	shared [file]
+[debug] 	default resolver: default
+[debug] 	local [file]
+[debug] 	-- 5 resolvers:
+[debug] 	local [file]
+[debug] 	main [chain] [shared, public]
+[debug] 	default [chain] [local, main]
+[debug] 	shared [file]
+[debug] 	public [ibiblio]
+[debug] 	local [file]
+[debug] 	default [chain] [local, main]
+[debug] 	main [chain] [shared, public]
+[debug] 	public [ibiblio]
+[debug] 	local [file]
+[debug] 	main [chain] [shared, public]
+[debug] 	local [file]
+[debug] :: resolution report :: resolve 230ms :: artifacts dl 61ms
 [debug] 	report for default#word_cnt$sources;0.1 compile produced in /Users/yujieshen/IdeaProjects/scala/ML_exercise/word_cnt/target/scala-2.11/resolution-cache/reports/default-word_cnt$sources-compile.xml
 [debug] 	report for default#word_cnt$sources;0.1 runtime produced in /Users/yujieshen/IdeaProjects/scala/ML_exercise/word_cnt/target/scala-2.11/resolution-cache/reports/default-word_cnt$sources-runtime.xml
 [debug] 	report for default#word_cnt$sources;0.1 test produced in /Users/yujieshen/IdeaProjects/scala/ML_exercise/word_cnt/target/scala-2.11/resolution-cache/reports/default-word_cnt$sources-test.xml
@@ -310,4 +406,4 @@
 [debug] 	report for default#word_cnt$sources;0.1 plugin produced in /Users/yujieshen/IdeaProjects/scala/ML_exercise/word_cnt/target/scala-2.11/resolution-cache/reports/default-word_cnt$sources-plugin.xml
 [debug] 	report for default#word_cnt$sources;0.1 pom produced in /Users/yujieshen/IdeaProjects/scala/ML_exercise/word_cnt/target/scala-2.11/resolution-cache/reports/default-word_cnt$sources-pom.xml
 [debug] 	report for default#word_cnt$sources;0.1 scala-tool produced in /Users/yujieshen/IdeaProjects/scala/ML_exercise/word_cnt/target/scala-2.11/resolution-cache/reports/default-word_cnt$sources-scala-tool.xml
-[debug] 	resolve done (16ms resolve - 2ms download)
+[debug] 	resolve done (230ms resolve - 61ms download)

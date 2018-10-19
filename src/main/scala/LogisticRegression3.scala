@@ -20,7 +20,7 @@ object LogisticRegression3 {
   val sc = new SparkContext(conf)
 
   def main(args: Array[String]): Unit = {
-    val data = MLUtils.loadLibSVMFile(sc, "./src/main/resouces/data_input_libSVM.txt") //设置数据集
+    val data = MLUtils.loadLibSVMFile(sc, "./src/main/resouces/liushi2_libsvm") //设置数据集
     /**
       * 首先介绍一下 libSVM的数据格式
       * Label 1:value 2:value ….
@@ -43,7 +43,7 @@ object LogisticRegression3 {
     }
     // 而后是对x的操作，即定义了一个prediction来存预测的结
     // 果，然后再定义返回值
-    predictionAndLabels.foreach(println)
+//    predictionAndLabels.foreach(println)
     val trainErr = predictionAndLabels.filter(r => r._1 != r._2).count.toDouble / parsedTest.count
     println("容错率为trainErr： " + trainErr)
     /**
